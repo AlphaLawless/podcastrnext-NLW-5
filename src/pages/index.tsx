@@ -3,13 +3,16 @@
 // SSR - Basta usar uma chamada (export async function) getServerSideProps() - Os dados vão ser rodados todos de uma vez no Next
 // SSG - Basta usar a mesma chamada do SSR () getStaticProps() - Só funciona os dados em Produção
 
+import { useContext } from 'react'
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+
 import { api } from '../services/api'
 import { convertDurationToTimeString } from '../utils/ConvertDurationToTimeString'
+import { PlayerContext } from '../contexts/PlayerContext'
 
 import styles from './home.module.scss'
 
@@ -35,10 +38,12 @@ type HomeProps = {
 //Parte para adiciona tipagem ao nosso Props(Propriedade)
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
+  const { play } = useContext(PlayerContext)
+
   return (
     <div className={styles.homePage}>
       <section className={styles.latestEpisodes}>
-        <h2>Últimos lançamentos</h2>
+        <h2>Últimos lançamentos {play}</h2>
 
         <ul>
           {latestEpisodes.map(episode => {
@@ -61,7 +66,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <span>{episode.durationAsString}</span>
                 </div>
 
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                   <img src="/play-green.svg" alt="Tocar episódio" />
                 </button>
               </li>

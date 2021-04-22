@@ -28,13 +28,17 @@ function MyApp({ Component, pageProps }) {
     setIsPlaying(true)
   }
 
+  function setPlayingState(state: boolean) {
+    setIsPlaying(state)
+  }
+
   //Criando uma function para mudar o estado de play (ou seja, pausar) no nosso player
   function togglePlay() {
     setIsPlaying(!isPlaying)
   }
 
   return (
-    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play, isPlaying, togglePlay }}>
+    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play, isPlaying, togglePlay, setPlayingState }}>
       <div className={styles.wrapper}>
         <main>
           <Header />
