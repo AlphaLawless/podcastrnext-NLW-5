@@ -7,19 +7,34 @@ import '../styles/global.scss'
 
 import Header from '../components/Header'
 import Player from '../components/Player'
+import { PlayerContext } from '../contexts/PlayerContext'
 
 import styles from '../styles/app.module.scss'
+import { useState } from 'react'
 
 
 function MyApp({ Component, pageProps }) {
+  /* essa parte serve para transformar uma mudança no react. Fazendo com que [duas] variáveis estejam
+     inseridas no estado do react. */
+  const [episodeList, setEpisodeList] = useState([])
+  const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
+
+  //Agora vamos precisar de uma function para manipular os valores dessas varibles nos Estados.
+  function play(episode) {
+    setEpisodeList([episode])
+    setCurrentEpisodeIndex(0)
+  }
+
   return (
-    <div className={styles.wrapper}>
-      <main>
-        <Header />
-        <Component {...pageProps} />
-      </main>
-      <Player />
-    </div>
+    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play }}>
+      <div className={styles.wrapper}>
+        <main>
+          <Header />
+          <Component {...pageProps} />
+        </main>
+        <Player />
+      </div>
+    </PlayerContext.Provider>
   )
 }
 
