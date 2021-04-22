@@ -18,15 +18,23 @@ function MyApp({ Component, pageProps }) {
      inseridas no estado do react. */
   const [episodeList, setEpisodeList] = useState([])
   const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
+  //Create the new state for isPlaying in audio
+  const [isPlaying, setIsPlaying] = useState(false)
 
   //Agora vamos precisar de uma function para manipular os valores dessas varibles nos Estados.
   function play(episode) {
     setEpisodeList([episode])
     setCurrentEpisodeIndex(0)
+    setIsPlaying(true)
+  }
+
+  //Criando uma function para mudar o estado de play (ou seja, pausar) no nosso player
+  function togglePlay() {
+    setIsPlaying(!isPlaying)
   }
 
   return (
-    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play }}>
+    <PlayerContext.Provider value={{ episodeList, currentEpisodeIndex, play, isPlaying, togglePlay }}>
       <div className={styles.wrapper}>
         <main>
           <Header />
