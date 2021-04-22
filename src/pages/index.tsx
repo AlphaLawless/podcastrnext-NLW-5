@@ -121,8 +121,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 }
 
 //Feito tudo essa parte de API Static do Projeto, precisamos executar uma build do Projeto
-//yarn build - como se estivesse em Produção, para gerar as páginas de forma Estática
-//Mudança de yarn dev para yarn start para executa a nova funcionalidade do projeto, como se estivesse em Produção.
+//yarn build (compilar) + yarn start - como se estivesse em Produção, para gerar as páginas de forma Estática
 
 export const getStaticProps: GetStaticProps = async () => {
   //Outra forma de chamar o data -> const data = await response.data
