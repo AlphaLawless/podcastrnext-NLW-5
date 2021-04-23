@@ -70,13 +70,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await api.get('episodes', {
     //Passando os parametros em formato estruturado pelo JavaScript.
     params: {
-      _limit: 2,
+      _limit: 12,
       _sort: 'published_at',
       _order: 'desc'
     }
   })
 
-  const paths = data.mat(episode => {
+  const paths = data.map(episode => {
     return {
       params: {
         slug: episode.id
