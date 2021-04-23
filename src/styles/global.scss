@@ -19,6 +19,14 @@
   --purple-400: #9164FA; 
   --purple-500: #8257E5;
   --purple-800: #6F48C9;
+
+  --color-green: #50fa7b;
+  --color-margenta: #ff79c6;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--color-green) #333333;
 }
 
 @media (max-width: 1080px) {
@@ -38,6 +46,20 @@
 
 body {
   background: var(--gray-50);
+}
+
+body::-webkit-scrollbar {
+  background-color: #fff;
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--color-green);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-margenta);
 }
 
 body, input, textarea, button {
