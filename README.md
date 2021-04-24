@@ -2,7 +2,7 @@
 
 ## 👨‍💻 Project
 
-[Podcastrnext](https://podcastrnext-nlw-5.vercel.app) to bring you even closer to the best technology podcasts! 💜 
+[Podcastrnext](https://podcastrnext-nlw-5.vercel.app) to bring you even closer to the best technology podcasts!
 
 This is a project developed during the **[Next Level Week 5th](https://nextlevelweek.com/)**, presented by **[@Rocketseat](https://github.com/Rocketseat)** during April 19-25, 2021.
 
