@@ -25,7 +25,7 @@ $ git clone https://github.com/AlphaLawless/podcastrnext-NLW-5.git
 Follow the steps below
 ```bash
 # Install the dependencies
-$ yarn
+$ yarn install
 
 # Run the JSON server
 $ yarn server
